@@ -1,0 +1,60 @@
+size = 15;
+zoom = 3.1416 / (size + 1);
+loops = 150;
+
+b1X = zeros(1, size + 2);
+b1Y = zeros(1, size + 2);
+b1Z = zeros(1, size + 2);
+b2X = zeros(1, size + 2);
+b2Y = zeros(1, size + 2);
+b2Z = zeros(1, size + 2);
+
+for i = 1:(size + 2)
+    b1X(i) = cos((i - 1) * zoom);
+    b1Y(i) = sin((i - 1) * zoom);
+    b1Z(i) = 0;
+    b2X(i) = cos((i - 1) * zoom);
+    b2Y(i) = sin((i - 1) * zoom);
+    b2Z(i) = 1;
+end
+
+X = zeros((size + 2), (size + 2));
+Y = zeros((size + 2), (size + 2));
+Z = zeros((size + 2), (size + 2));
+
+for i = 1 : (size + 2)
+    X(1, i) = b1X(i);
+    Y(1, i) = b1Y(i);
+    Z(1, i) = b1Z(i);
+    X(size + 2, i) = b2X(i);
+    Y(size + 2, i) = b2Y(i);
+    Z(size + 2, i) = b2Z(i);
+end
+
+X2 = X;
+Y2 = Y;
+Z2 = Z;
+
+for step = 1:loops
+    for i = 2:(size + 1)
+        X2(i, 1) = (X(i-1, 1) + X(i+1, 1) + X(i, size + 2) + X(i, 2)) / 4;
+        Y2(i, 1) = (Y(i-1, 1) + Y(i+1, 1) + Y(i, size + 2) + Y(i, 2)) / 4;
+        Z2(i, 1) = (Z(i-1, 1) + Z(i+1, 1) + Z(i, size + 2) + Z(i, 2)) / 4;
+            
+        for j = 2:(size + 1)
+            X2(i, j) = (X(i-1, j) + X(i+1, j) + X(i, j-1) + X(i, j+1)) / 4;
+            Y2(i, j) = (Y(i-1, j) + Y(i+1, j) + Y(i, j-1) + Y(i, j+1)) / 4;
+            Z2(i, j) = (Z(i-1, j) + Z(i+1, j) + Z(i, j-1) + Z(i, j+1)) / 4;
+        end
+        
+        X2(i, size + 2) = (X(i-1, size + 2) + X(i+1, size + 2) + X(i, size + 1) + X(i, 1)) / 4;
+        Y2(i, size + 2) = (Y(i-1, size + 2) + Y(i+1, size + 2) + Y(i, size + 1) + Y(i, 1)) / 4;
+        Z2(i, size + 2) = (Z(i-1, size + 2) + Z(i+1, size + 2) + Z(i, size + 1) + Z(i, 1)) / 4;
+    end
+    
+    X = X2;
+    Y = Y2;
+    Z = Z2;
+end
+
+surf(X, Y, Z)
