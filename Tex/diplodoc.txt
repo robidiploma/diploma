@@ -1,4 +1,4 @@
-\title{Minim\'al \'es konstans g\"orb\"uletu fel\"uletek numerikus sz\'am\'it\'asa}
+\title{Minim\'al \'es konstans g\"orb\"ulet\H{u} fel\"uletek numerikus sz\'am\'it\'asa}
 \date {\today}
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
@@ -134,6 +134,29 @@ A derivált operátorokat hasonlóan alakítom át, mint az előző fejelzetben.
 z-ből olszlopvektor készítek és a fenti egyenletrendszert mátrixos alakra hozom. Ekkor A (az egyenletrendszer mátrixa) ritka lesz. Főátlójában 4-esek, négy mellékátlójában -1 -ek fonak szerepelni, a többi elem nulla.
 \newline
 Ezt a Gauss-módszerrel megoldhatom.
+\bigskip
+\newline
+\underline{4. A Weierstrass reprezent\'aci\'o alkalmaz\'asa}
+\newline
+Adott egy zárt görbe, ezt egy négyzet oldalaiként parametrizálom a komplex síkon: X(z), Y(z), Z(z) a pontok koordinátái. A négyzet oldalai mentén pontokat veszek fel, azonos távolságra egymástól:
+\newline
+\begin{math} u_0+kh + iv_0, u_0+Nh + i(v_0+kh), u_0+kh + i(v_0+Nh), u_0 + i(v_0+kh),  k=0..N \end{math}
+\newline
+A pontok felezőiben z szerinti deriváltakat számítok, így ott megkapom egy X'(z) függvény közelítő értékeit. X'(z) holomorf függvényt keresem.
+\newline
+Állítás (egzisztencia) Minden $ \Phi(z) |_{\partial \Gamma} $ peremfeltételhez létezik olyan $ \Psi $ függvény, hogy $ \Psi = \Phi $ $ \Gamma $ határán.
+\newline
+Bizonyítás: parciális deriváltakkal.
+\newline
+Állítás (unicitás) $ \Psi $ egyértelmű.
+\newline
+Bizonyítás: Holomorf $ => $ Cauchy-integrál
+\newline
+A számítás következő lépése, hogy a kapott deriváltakat fehasználva Cauchy-integrállal kiszámolom a négyzet belsejében lévő, rácsszerűen elhelyezkedő pontokra a derivált értékét. Utána ezen rács segítségével kiszámítom a négyzet belsejében X(z) értékét egyszerű integrálással:
+\newline
+\begin{math} X=\int^z X'(w)dw \end{math}
+\newline
+Ugyanígy számítjuk Y(z)-t és Z(z)-t. Ez a [2]-ben található Weierstrass reprezentáció.
 \bigskip
 \newline
 \underline{Referenciák}
