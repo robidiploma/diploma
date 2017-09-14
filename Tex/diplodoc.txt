@@ -9,161 +9,167 @@
 
 Plateau probléma: Adott egy térgörbe. Ehhez, mint peremhez keresünk minimális mértékű reguláris (?) felületet.
 \newline
-\underline{1. Elméleti alapok}
+\section{Elméleti alapok}
+\subsection{A minimálfelület fogalma}
+A minimálfelület olyan reguláris felület, amelyen a középgörbület mindenhol nulla \cite{bib1}. Egy másik definíció szerint a felületének lokálisan minimálisnak kell lennie \cite{bib2}. Ez két, ekvivalens matematikai feltételt ad a felület pontjaira. A következőkben megmutatom, hogy a két állítás azonos differenciálegyenletre vezet.
+Az 1. és 2. fejezetben $ (x, y, z(x,y)) $ paraméterezésű felületekkel számolok, ahol $ x, y \in R, z : R^2 \rightarrow R $ .
 \newline
-1.1 Minimálfelület fogalma
-\newline
-A minimálfelület olyan reguláris felület, amelyen a középgörbület mindenhol nulla [1]. Egy másik definíció szerint a felületének lokálisan minimálisnak kell lennie [2]. Ez két, ekvivalens matematikai feltételt ad a felület pontjaira.
-Az 1. és 2. fejezetben (x, y, z(x,y)) paraméterezésű felületekkel számolunk.
-\newline
-Középgörbület
-\newline
+\subsection{A középgörbület}
+A mennyiség definiálásához előbb szükség lesz néhány alapvetőbb fogalomra.
 Az érintővektorok:
 \newline
-\begin{math} u_x = \left( \begin{array}{c} 1 \\ 0 \\ \frac{\partial z}{\partial x}  \end{array} \right) \end{math} ,
-\begin{math} u_y = \left( \begin{array}{c} 0 \\ 1 \\ \frac{\partial z}{\partial y}  \end{array} \right) \end{math}
+\begin{equation} u_x = \left( \begin{array}{c} 1 \\ 0 \\ \frac{\partial z}{\partial x}  \end{array} \right) \end{equation} ,
+\begin{equation} u_y = \left( \begin{array}{c} 0 \\ 1 \\ \frac{\partial z}{\partial y}  \end{array} \right) \end{equation}
 \newline
-Az első főmennyiség ( $ <a, b> $ a és b vektorok belső szorzatát jelöli):
+Az első főmennyiség ( Innentől $ <a, b> $ a és b vektorok belső szorzatát jelöli):
 \newline
-\begin{math} g= \left( \begin{array}{cc} <u_x, u_x> \ <u_x, u_y> \\ <u_y, u_x> \ <u_y, u_y> \end{array} \right) = \left( \begin{array}{cc} 1 + ( \frac{\partial z}{\partial x})^2  \ ( \frac{\partial z}{\partial x})( \frac{\partial z}{\partial y}) \\ ( \frac{\partial z}{\partial y})( \frac{\partial z}{\partial x}) \ 1 + ( \frac{\partial z}{\partial y})^2 \end{array} \right) \end{math}
+\begin{equation} g= \left( \begin{array}{cc} <u_x, u_x> \ <u_x, u_y> \\ <u_y, u_x> \ <u_y, u_y> \end{array} \right) = \left( \begin{array}{cc} 1 + ( \frac{\partial z}{\partial x})^2  \ ( \frac{\partial z}{\partial x})( \frac{\partial z}{\partial y}) \\ ( \frac{\partial z}{\partial y})( \frac{\partial z}{\partial x}) \ 1 + ( \frac{\partial z}{\partial y})^2 \end{array} \right) \end{equation}
 \newline
 A normálvektor:
 \newline
-\begin{math} N = | u_x \times u_y | = \frac{ \left( \begin{array}{c} -\frac{\partial z}{\partial x} \\ -\frac{\partial z}{\partial y} \\ 1 \end{array} \right)}{\sqrt{ (\frac{\partial z}{\partial x})^2  + (\frac{\partial z}{\partial y})^2 + 1} } \end{math}
+\begin{equation} N = | u_x \times u_y | = \frac{ \left( \begin{array}{c} -\frac{\partial z}{\partial x} \\ -\frac{\partial z}{\partial y} \\ 1 \end{array} \right)}{\sqrt{ (\frac{\partial z}{\partial x})^2  + (\frac{\partial z}{\partial y})^2 + 1} } \end{equation}
 \newline
 A második főmennyiség:
 \newline
-\begin{math} b_{ij} = < u_{ij}, N > \end{math} , behelyettesítve: 
-\begin{math} b = \frac{ \left( \begin{array}{cc} z_{xx} \  z_{xy} \\  z_{xy} \  z_{yy} \end{array}  \right) }{ \sqrt{ (\frac{\partial z}{\partial x})^2  + (\frac{\partial z}{\partial y})^2 + 1 } } \end{math}
+\begin{equation} b_{ij} = < u_{ij}, N > \end{equation} , behelyettesítve: 
+\begin{equation} b = \frac{ \left( \begin{array}{cc} z_{xx} \  z_{xy} \\  z_{xy} \  z_{yy} \end{array}  \right) }{ \sqrt{ (\frac{\partial z}{\partial x})^2  + (\frac{\partial z}{\partial y})^2 + 1 } } \end{equation}
 \newline
 Ezekből a középgörbület:
 \newline
-\begin{math}  H = \frac{g_{11}b_{22} - 2g_{12}b_{12} + g_{22}b_{22}}{2(g_{11}g_{22} - g_{12}^2)} = \frac{(1 +z_x^2)z_{yy} - 2 z_x z_y z_{xy} + (1 + z_y^2)z_{xx} }{ (z_x^2 + z_y^2 + 1)^{3/2}} \end{math} 
+\begin{equation}  H = \frac{g_{11}b_{22} - 2g_{12}b_{12} + g_{22}b_{22}}{2(g_{11}g_{22} - g_{12}^2)} = \frac{(1 +z_x^2)z_{yy} - 2 z_x z_y z_{xy} + (1 + z_y^2)z_{xx} }{ (z_x^2 + z_y^2 + 1)^{3/2}} \end{equation} 
 \newline
-Ha ezt egyenlővé tesszük nullával és beszorzunk a nevezővel (amely mindig pozitív), megkapjuk a minimálfelület-egyenletet:
+Ha ezt egyenlővé tesszük nullával és beszorzunk a nevezővel (amely mindig pozitív), megkapjuk a minimálfelület-egyenletet (három dimenzióra):
 \newline
-\begin{math} (1 +z_x)^2z_{yy} - 2 z_x z_y z_{xy} + (1 + z_y^2)z_{xx} = 0 \end{math} 
+\begin{equation} (1 +z_x)^2z_{yy} - 2 z_x z_y z_{xy} + (1 + z_y^2)z_{xx} = 0 \end{equation} 
 \newline
-A felület első variációja
-\newline
+n dimenzióra hasonlóan lehet megkapni, de ott a vektorok n dimenziósak, az első és a második főmennyiség mátrixa $ n \times n $-es.
+Az általánosabb egyenlet:
+\begin{equation} \sum_j \left( 1 + \sum_{k \ne j} \left( \frac{\partial z}{\partial x_k} \right)^2  \right) \frac{\partial ^2 z}{\partial x_j^2} - 2\sum_j \sum_{k < j} \frac{\partial z}{\partial x_j} \frac{\partial z}{\partial x_k} \frac{\partial ^2 z}{\partial x_j \partial x_k} = 0 \end{equation}
+Itt a felületet az
+\begin{equation} (x_1, ..., x_{n-1}, z(x_1, ..., x_{n-1})),      x_1, ..., x_{n-1} \in R, z : R^{n-1} \rightarrow R \end{equation}
+alakban írom le.
+\subsection{A felület első variációja}
 A sima alakzat felülete:
 \newline
-\begin{math} \int A dF \end{math}, ahol \begin{math} A = | u_x \times u_y | = \sqrt{ z_x^2 + z_y^2 + 1 } \end{math}
+\begin{equation} \int A dF \end{equation}, ahol \begin{equation} A = | u_x \times u_y | = \sqrt{ z_x^2 + z_y^2 + 1 } \end{equation}
 z-t megvariálom egy olyan fügvénnyel, ami a vizsgált tartomány szélén eltűnik: $ z(x, y) + \epsilon f(x, y) $. Itt $ \epsilon $ egy infinitezimális valós konstans.
 \newline
 A variált felület:
 \newline
-\begin{math} \frac{\partial}{\partial \epsilon} \int  \sqrt{ (z_x + \epsilon f_x)^2 + (z_y + \epsilon f_y)^2 + 1 } dF |_{\epsilon = 0} = \end{math}
+\begin{equation} \frac{\partial}{\partial \epsilon} \int  \sqrt{ (z_x + \epsilon f_x)^2 + (z_y + \epsilon f_y)^2 + 1 } dF |_{\epsilon = 0} = \end{equation}
 \newline
-\begin{math}  \int  \frac{(z_x + \epsilon f_x)f_x + (z_y + \epsilon f_y)f_y}{\sqrt{ (z_x + \epsilon f_x)^2 + (z_y + \epsilon f_y)^2 + 1 }} dF |_{\epsilon = 0} = \end{math}
+\begin{equation}  \int  \frac{(z_x + \epsilon f_x)f_x + (z_y + \epsilon f_y)f_y}{\sqrt{ (z_x + \epsilon f_x)^2 + (z_y + \epsilon f_y)^2 + 1 }} dF |_{\epsilon = 0} = \end{equation}
 \newline
-\begin{math}  \int  \frac{z_x f_x + z_y f_y}{\sqrt{ z_x^2 + z_y^2 + 1 }} dF  \end{math}
+\begin{equation}  \int  \frac{z_x f_x + z_y f_y}{\sqrt{ z_x^2 + z_y^2 + 1 }} dF  \end{equation}
 \newline
 Ebből el kell tűntetni f deriváltjait, ezért parciálisan integrálom az $ f_x $ -es részt x szerint, az $ f_y $ -osat y szerint
 \newline
-\begin{math} \int_{\partial}f  ...  - \int  f  \frac{\partial}{\partial x} \frac{z_x }{\sqrt{ z_x^2 + z_y^2 + 1 }} dF - \int f  \frac{\partial}{\partial y} \frac{z_y }{\sqrt{ z_x^2 + z_y^2 + 1 }} dF  \end{math}
+\begin{equation} \int_{\partial}f  ...  - \int  f  \frac{\partial}{\partial x} \frac{z_x }{\sqrt{ z_x^2 + z_y^2 + 1 }} dF - \int f  \frac{\partial}{\partial y} \frac{z_y }{\sqrt{ z_x^2 + z_y^2 + 1 }} dF  \end{equation}
 \newline
 Az első tagban a tartomány határán integrálunk, de mivel itt f nulla, az egész integrál is nulla lesz. A parciális deriválásokat elvégezve:
 \newline
-\begin{math} - \int  f \frac{z_{xx} }{\sqrt{ z_x^2 + z_y^2 + 1 }} dF + \int  f   \frac{z_x(2z_x z_{xx} + 2z_y z_{xy}) }{2(z_x^2 + z_y^2 + 1 )^{3/2}} dF -\end{math}
+\begin{equation} - \int  f \frac{z_{xx} }{\sqrt{ z_x^2 + z_y^2 + 1 }} dF + \int  f   \frac{z_x(2z_x z_{xx} + 2z_y z_{xy}) }{2(z_x^2 + z_y^2 + 1 )^{3/2}} dF -\end{equation}
 \newline
-\begin{math} - \int f  \frac{z_{yy} }{(z_x^2 + z_y^2 + 1 )^{3/2}} dF + \int  f   \frac{z_y(2z_x z_{xy} + 2z_y z_{yy}) }{2(z_x^2 + z_y^2 + 1 )^{3/2}} dF \end{math}
+\begin{equation} - \int f  \frac{z_{yy} }{(z_x^2 + z_y^2 + 1 )^{3/2}} dF + \int  f   \frac{z_y(2z_x z_{xy} + 2z_y z_{yy}) }{2(z_x^2 + z_y^2 + 1 )^{3/2}} dF \end{equation}
 \newline
 Közös nevezőre hozva:
 \newline
-\begin{math} - \int  f   \frac{(1+z_y^2)z_{xx}  - 2 z_x z_y z_{xy} (1+z_x^2)z_{yy} }{(z_x^2 + z_y^2 + 1 )^{3/2}} dF \end{math}
+\begin{equation} - \int  f   \frac{(1+z_y^2)z_{xx}  - 2 z_x z_y z_{xy} (1+z_x^2)z_{yy} }{(z_x^2 + z_y^2 + 1 )^{3/2}} dF \end{equation}
 Minden, a tartomány szélén eltűnő f(x,y)-ra nullának kell lennie, ha (x, y, z(x,y)) minimálfelület, így ismét a minimálfelület-egyenletet kaptuk.
 \bigskip
 \newline
-\underline{2. A nemlineáris PDE megoldása}
-\newline
+
+
+\section{A nemlineáris PDE megoldása}
 Véges differencia módszerrel oldjuk meg a következő nemlineáris parciáis differenciálegyenletet:
 \newline
-\begin{math} (1 +z_x^2)z_{yy} - 2 z_x z_y z_{xy} + (1 + z_y^2)z_{xx} = 0 \end{math}
+\begin{equation} (1 +z_x^2)z_{yy} - 2 z_x z_y z_{xy} + (1 + z_y^2)z_{xx} = 0 \end{equation}
 \newline
 z(x, y)-t egy NxN-es négyzet alakú tartományon diszkretizáljuk:
 \newline
-\begin{math} z(x_i,y_j) = \tilde z(i, j) \end{math}
+\begin{equation} z(x_i,y_j) = \tilde z(i, j) \end{equation}
 \newline
 A számítás könnyen átalakítható téglalap alakú tartományra. A következő differencia-sémákat használjuk:
 \newline
-\begin{math} z_x(i, j) = \frac{\tilde z(i+1, j) - \tilde z(i-1, j)}{2h} \end{math}
+\begin{equation} z_x(i, j) = \frac{\tilde z(i+1, j) - \tilde z(i-1, j)}{2h} \end{equation}
 \newline
-\begin{math} z_y(i, j) = \frac{\tilde z(i, j+1) - \tilde z(i, j-1)}{2h} \end{math}
+\begin{equation} z_y(i, j) = \frac{\tilde z(i, j+1) - \tilde z(i, j-1)}{2h} \end{equation}
 \newline
-\begin{math} z_{xx}(i, j) = \frac{\tilde z(i+1, j) - 2\tilde z(i, j) + \tilde z(i-1, j)}{h^2} \end{math}
+\begin{equation} z_{xx}(i, j) = \frac{\tilde z(i+1, j) - 2\tilde z(i, j) + \tilde z(i-1, j)}{h^2} \end{equation}
 \newline
-\begin{math} z_{xy}(i, j) = \frac{\tilde z(i+1, j+1) - \tilde z(i+1, j) - \tilde z(i, j-1) + \tilde z(i-1, j-1)}{4h^2} \end{math}
+\begin{equation} z_{xy}(i, j) = \frac{\tilde z(i+1, j+1) - \tilde z(i+1, j) - \tilde z(i, j-1) + \tilde z(i-1, j-1)}{4h^2} \end{equation}
 \newline
-\begin{math} z_{yy}(i, j) = \frac{\tilde z(i, j+1) - 2\tilde z(i, j) + \tilde z(i, j-1)}{h^2} \end{math}
+\begin{equation} z_{yy}(i, j) = \frac{\tilde z(i, j+1) - 2\tilde z(i, j) + \tilde z(i, j-1)}{h^2} \end{equation}
 \newline
 A kapott differenciaegyenlet:
 \newline
-\begin{math}
+\begin{equation}
 (1 + (\frac{\tilde z(i+1, j) - \tilde z(i-1, j)}{2h})^2) \frac{\tilde z(i, j+1) - 2\tilde z(i, j) + \tilde z(i, j-1)}{h^2} - \\
 2  \frac{\tilde z(i+1, j) - \tilde z(i-1, j)}{2h} \frac{\tilde z(i, j+1) - \tilde z(i, j-1)}{2h} \frac{\tilde z(i+1, j+1) - \tilde z(i+1, j) - \tilde z(i, j-1) + \tilde z(i-1, j-1)}{4h^2} + \\
-(1 + (\frac{\tilde z(i, j+1) - \tilde z(i, j-1)}{2h})^2) \frac{\tilde z(i+1, j) - 2\tilde z(i, j) + \tilde z(i-1, j)}{h^2} = 0 \end{math}
+(1 + (\frac{\tilde z(i, j+1) - \tilde z(i, j-1)}{2h})^2) \frac{\tilde z(i+1, j) - 2\tilde z(i, j) + \tilde z(i-1, j)}{h^2} = 0 \end{equation}
 Ezt minden belső pontra felírjuk, így $ N^2 $ egyenletünk van. A megoldást Newton iterációval közelítettem, $ \tilde z(i, j) $ elemeit $ \underline x $ vektorba tettem $ x_n = \tilde z(i, j), n = iN + j $ szerint. Az $ F(\underline x) = \underline 0 $ megoldásához az iterációs képlet:
 \newline
-\begin{math} \underline x^{(k+1)} = \underline x^{(k)} - J(\underline x^{(k)})^{-1}F(\underline x^{(k)}) \end{math},
+\begin{equation} \underline x^{(k+1)} = \underline x^{(k)} - J(\underline x^{(k)})^{-1}F(\underline x^{(k)}) \end{equation},
 \newline
 ahol $ J $ $ F $ Jacobi mátrixa. Példának egy elem:
 \newline
-\begin{math} J_{m, m+1} = \frac{\partial F_m}{\partial x_{m+1}}, m = iN + j \end{math}
+\begin{equation} J_{m, m+1} = \frac{\partial F_m}{\partial x_{m+1}}, m = iN + j \end{equation}
 \newline
-\begin{math} J_{m, m+1} = \frac{\partial F_{i, j}}{\partial \tilde z(i, j+1)} = (1 + (\frac{\tilde z(i+1, j) - \tilde z(i-1, j)}{2h})^2) \frac{1}{h^2} - \\
+\begin{equation} J_{m, m+1} = \frac{\partial F_{i, j}}{\partial \tilde z(i, j+1)} = (1 + (\frac{\tilde z(i+1, j) - \tilde z(i-1, j)}{2h})^2) \frac{1}{h^2} - \\
 2  \frac{\tilde z(i+1, j) - \tilde z(i-1, j)}{4h^2} \frac{\tilde z(i+1, j+1) - \tilde z(i+1, j) - \tilde z(i, j-1) + \tilde z(i-1, j-1)}{4h^2} + \\
 (2 \tilde z(i, j+1) - \tilde z(i, j-1)) \frac{\tilde z(i+1, j) - 2\tilde z(i, j) + \tilde z(i-1, j)}{4h^4}
- \end{math}
+ \end{equation}
 \bigskip
 \newline
-\underline{3. A felület közelítése harmonikus függvényekkel}
-\newline
-[2] 3.2-es fejezete szerint egy $ \phi : \Omega arrow R^3 , z = u + iv arrow (x_1, x_2, x_3) $
+
+
+\section{A felület közelítése harmonikus függvényekkel}
+[2] 3.2-es fejezete szerint egy $ \phi : \Omega \rightarrow R ^3 , z = u + iv \mapsto (x_1(z), x_2(z), x_3(z)) $
  felület minimálfelület akkor és csak akkor, ha a koordinátafüggvények harmonikusak. Azaz
 \newline
-\begin{math} \Delta x_i = (\frac{\partial^2}{\partial u^2} + \frac{\partial^2}{\partial v^2}) x_i = 0, i = 1, 2, 3 \end{math}
+\begin{equation} \Delta x_i = (\frac{\partial^2}{\partial u^2} + \frac{\partial^2}{\partial v^2}) x_i = 0, i = 1, 2, 3 \end{equation}
 \newline
-Mivel a koordinátafüggvények egymástól függetlenül kezelhetők, kiválasztok egyet közülük és diszkretizálom:
-\begin{math} x_k(u_i, v_j) = \tilde z(i, j) , 1 lessorequal i, j lessorequal N \end{math}
+Itt $ \Delta $ a Laplace-operátor. Mivel a koordinátafüggvények egymástól függetlenül kezelhetők, kiválasztok egyet közülük és diszkretizálom:
+\begin{equation} \tilde z(i, j) := x_k(u_i, v_j) , 1 \leq i, j \leq N \end{equation}
 \newline
 A derivált operátorokat hasonlóan alakítom át, mint az előző fejelzetben. Az új egyenletem:
 \newline
-\begin{math} 4\tilde z(i, j) - \tilde z(i-1, j) - \tilde z(i, j-1) - \tilde z(i+1, j) - \tilde z(i, j+1) = 0\end{math}
+\begin{equation} 4\tilde z(i, j) - \tilde z(i-1, j) - \tilde z(i, j-1) - \tilde z(i+1, j) - \tilde z(i, j+1) = 0\end{equation}
 \newline
 z-ből olszlopvektor készítek és a fenti egyenletrendszert mátrixos alakra hozom. Ekkor A (az egyenletrendszer mátrixa) ritka lesz. Főátlójában 4-esek, négy mellékátlójában -1 -ek fonak szerepelni, a többi elem nulla.
 \newline
 Ezt a Gauss-módszerrel megoldhatom.
 \bigskip
 \newline
-\underline{4. A Weierstrass reprezent\'aci\'o alkalmaz\'asa}
-\newline
+\section{A Weierstrass reprezent\'aci\'o alkalmaz\'asa}
 Adott egy zárt görbe, ezt egy négyzet oldalaiként parametrizálom a komplex síkon: X(z), Y(z), Z(z) a pontok koordinátái. A négyzet oldalai mentén pontokat veszek fel, azonos távolságra egymástól:
 \newline
-\begin{math} u_0+kh + iv_0, u_0+Nh + i(v_0+kh), u_0+kh + i(v_0+Nh), u_0 + i(v_0+kh),  k=0..N \end{math}
+\begin{equation} u_0+kh + iv_0, u_0+Nh + i(v_0+kh), u_0+kh + i(v_0+Nh), u_0 + i(v_0+kh),  k=0..N \end{equation}
 \newline
 A pontok felezőiben z szerinti deriváltakat számítok, így ott megkapom egy X'(z) függvény közelítő értékeit. X'(z) holomorf függvényt keresem.
 \newline
-Állítás (egzisztencia) Minden $ \Phi(z) |_{\partial \Gamma} $ peremfeltételhez létezik olyan $ \Psi $ függvény, hogy $ \Psi = \Phi $ $ \Gamma $ határán.
+\textbf{Állítás} (egzisztencia) Minden $ \Phi(z) |_{\partial \Gamma} $ peremfeltételhez létezik olyan $ \Psi $ függvény, hogy $ \Psi = \Phi $ $ \Gamma $ határán.
 \newline
-Bizonyítás: parciális deriváltakkal.
+\textbf{Bizonyítás} parciális deriváltakkal.
 \newline
-Állítás (unicitás) $ \Psi $ egyértelmű.
+\textbf{Állítás} (unicitás) $ \Psi $ egyértelmű.
 \newline
-Bizonyítás: Holomorf $ => $ Cauchy-integrál
+\textbf{Bizonyítás} Holomorf $ => $ Cauchy-integrál
 \newline
 A számítás következő lépése, hogy a kapott deriváltakat fehasználva Cauchy-integrállal kiszámolom a négyzet belsejében lévő, rácsszerűen elhelyezkedő pontokra a derivált értékét. Utána ezen rács segítségével kiszámítom a négyzet belsejében X(z) értékét egyszerű integrálással:
 \newline
-\begin{math} X=\int^z X'(w)dw \end{math}
+\begin{equation} X=\int^z X'(w)dw \end{equation}
 \newline
 Ugyanígy számítjuk Y(z)-t és Z(z)-t. Ez a [2]-ben található Weierstrass reprezentáció.
 \bigskip
 \newline
-\underline{Referenciák}
-\newline
-[1] B\"ar - Elementary differential geometry
-\newline
-[2] Weber - Classical minimal surfaces in Euclidean space
+
+\begin{thebibliography}{2}
+\bibitem{bib1}
+B\"ar - Elementary differential geometry
+\bibitem{bib2}
+Weber - Classical minimal surfaces in Euclidean space
+\end{thebibliography}
 
 
 
